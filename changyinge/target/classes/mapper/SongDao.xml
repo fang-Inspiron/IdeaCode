@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.SongDao">
+    <insert id="add" parameterType="User">
+        insert ignore into
+          song(song_id,song_name,singger_name,album_name,
+          albumpic_big,albumpic_sma,downurl,m4a,seconds,
+          category,lrc,collections_count,comment_count,
+          download_count,hot)
+        values
+          (#{songId},#{songName},#{singgerName},#{albumName},
+          #{albumpicBig},#{albumpicSma},#{downurl},#{m4a},#{seconds},
+          #{category},#{lrc},0,0,
+          0,0)
+    </insert>
+    <delete id="delete" parameterType="_long">
+        delete from song where song_id=#{songId}
+    </delete>
+    <select id="get" parameterType="_long" resultType="Song">
+        select *
+        from song
+        where
+          song_id=#{songId}
+    </select>
+    <update id="increaseCollectionsCount">
+        update song
+        set
+          collections_count=collections_count+1
+        where
+          song_id=#{songId}
+    </update>
+    <update id="increaseCommentCount">
+        update song
+        set
+          comment_count=comment_count+1
+        where
+        song_id=#{songId}
+    </update>
+    <update id="increaseDownloadCount">
+        update song
+        set
+          download_count=download_count+1
+        where
+        song_id=#{songId}
+    </update>
+    <update id="increaseHot">
+        update song
+        set
+          hot=hot+1
+        where
+          song_id=#{songId}
+    </update>
+    <select id="selectByHot" resultType="Collections">
+        select *
+        from song
+        order by hot desc
+        limit #{start},#{rows}
+    </select>
+    <select id="selectByKey" resultType="Collections">
+        select *
+        from song
+        where song_name like #{key} or singger_name like #{key}
+        limit #{start},#{rows}
+    </select>
+    <select id="selectByCategory" resultType="Collections">
+        select *
+        from song
+        where category=#{category}
+    </select>
+</mapper>

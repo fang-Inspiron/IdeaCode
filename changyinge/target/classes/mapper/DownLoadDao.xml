@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.DownLoadDao">
+    <insert id="add">
+        insert ignore into download(user_id,song_id,time)
+        values(#{userId},#{songId},now())
+    </insert>
+    <delete id="delete">
+        delete from download where user_id=#{userId} and song_id=#{songId}
+    </delete>
+    <select id="getList" resultType="Collections">
+        select *
+        from download d
+        left join song s on d.song_id=s.song_id
+        where
+          d.user_id=#{userId}
+    </select>
+</mapper>

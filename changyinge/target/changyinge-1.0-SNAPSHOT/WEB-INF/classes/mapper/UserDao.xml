@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.UserDao">
+    <insert id="add" parameterType="User">
+        insert ignore into user(user_id,name,password,power)
+        values(#{userId},#{name},#{password},#{power})
+    </insert>
+    <delete id="delete" parameterType="string">
+        delete from user where user_id=#{userId}
+    </delete>
+    <update id="update" parameterType="User">
+        update user
+        set
+          name=#{name},
+          password=#{password},
+          power=#{power}
+        where
+          user_id=#{userId}
+    </update>
+    <select id="get" parameterType="string" resultType="User">
+        select
+          user_id,name,password,power
+        from
+          user
+        where
+          user_id=#{userId}
+    </select>
+</mapper>
