@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 public class ManagerLoginCheckInterceptor implements HandlerInterceptor{
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         HttpSession httpSession = httpServletRequest.getSession(false);
-        if (httpSession == null||httpSession.getAttribute("power")==null) {
+        if (httpSession == null) {
             httpServletResponse.setStatus(401);
             return false;
         } else {

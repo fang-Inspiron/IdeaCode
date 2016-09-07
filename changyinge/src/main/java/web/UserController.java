@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 import service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -33,7 +35,7 @@ public class UserController {
         String userId=(String)request.getSession().getAttribute("userId");
         userService.updateName(userId,name);
         Map response = new HashMap<String,Object>();
-        response.put("reault",true);
+        response.put("result",true);
         return response;
     }
     @RequestMapping(value = "updatepassword")
@@ -51,4 +53,5 @@ public class UserController {
         }
         return response;
     }
+
 }

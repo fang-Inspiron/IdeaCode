@@ -27,4 +27,7 @@
         where
           user_id=#{userId}
     </select>
+    <select id="getAll" resultType="User">
+        select * from user
+    </select>
 </mapper>

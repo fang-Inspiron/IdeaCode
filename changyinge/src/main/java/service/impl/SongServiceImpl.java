@@ -42,7 +42,7 @@ public class SongServiceImpl implements SongService {
     }
 
     public List<Collections> selectByKey(String key, int start,int rows) {
-        return songDao.selectByKey(key,start,rows);
+        return songDao.selectByKey("%"+key+"%",start,rows);
     }
     public List<Collections> selectByCategory(String category){
         return songDao.selectByCategory(category);

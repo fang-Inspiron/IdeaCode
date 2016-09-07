@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.UserService;
 
+import java.util.List;
+
 /**
  * Created by fang on 2016/8/31.
  */
@@ -53,6 +55,11 @@ public class UserServiceImpl implements UserService {
     public User get(String userId) {
         return userDao.get(userId);
     }
+
+    public List<User> getAll() {
+        return userDao.getAll();
+    }
+
 
     public int updateName(String userId, String userName) {
         User user=userDao.get(userId);

@@ -45,4 +45,8 @@ public class UserDaoTest extends BaseTest{
         System.out.println(result);
     }
 
+    @Test
+    public void testGetAll() throws Exception {
+        System.out.println(userDao.getAll());
+    }
 }
