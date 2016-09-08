@@ -22,4 +22,7 @@
         left join user u on c.user_id=u.user_id
         where song_id=#{songId}
     </select>
+    <select id="getAllComment" resultType="Comment">
+        select * from comment
+    </select>
 </mapper>

@@ -47,11 +47,11 @@ http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springfr
 
         </mvc:interceptor>
 
-        <mvc:interceptor>
-            <mvc:mapping path="/managers/*/**" />
-            <bean class="interceptors.ManagerLoginCheckInterceptor" />
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/managers/*/**" />-->
+            <!--<bean class="interceptors.ManagerLoginCheckInterceptor" />-->
 
-        </mvc:interceptor>
+        <!--</mvc:interceptor>-->
 
     </mvc:interceptors>
 

@@ -69,4 +69,8 @@
         from song
         where category=#{category}
     </select>
+    <select id="getAll" resultType="Collections">
+        select * from song
+        limit #{start}, #{rows}
+    </select>
 </mapper>

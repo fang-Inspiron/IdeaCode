@@ -1,14 +1,11 @@
 package web;
 
-import entity.Collections;
-import entity.SongComment;
-import entity.User;
+import entity.*;
 import exception.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import entity.Song;
 import service.CommentService;
 import service.SongService;
 import service.UserService;
@@ -80,9 +77,19 @@ public class SongController {
         return commentService.getSongList(songId);
     }
 
-    @RequestMapping(value = "/getAll")
-    public List<User> getAll(){
+    @RequestMapping(value = "/getAllUser")
+    public List<User> getAllUser(){
         List<User> list = userService.getAll();
         return list;
+    }
+
+    @RequestMapping(value = "/getSomeSong/{start}/{rows}")
+    public List<Collections> getAllSong(@PathVariable("start") int start,@PathVariable("rows") int rows) {
+        return songService.getAll(start, rows);
+    }
+
+    @RequestMapping(value = "/getAllComment")
+    public List<Comment> getAllComment(HttpServletRequest request) {
+        return commentService.getAllComment();
     }
 }

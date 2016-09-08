@@ -18,4 +18,5 @@ public interface SongService {
     public List<Collections> selectByHot(int start,int rows);
     public List<Collections> selectByKey(String key,int start,int rows);
     public List<Collections> selectByCategory(String category);
+    public List<Collections> getAll(int start, int rows);
 }

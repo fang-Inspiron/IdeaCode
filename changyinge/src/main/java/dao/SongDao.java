@@ -20,4 +20,5 @@ public interface SongDao {
     public List<Collections> selectByHot(@Param("start") int start,@Param("rows") int rows);
     public List<Collections> selectByKey(@Param("key")String key,@Param("start")int start,@Param("rows")int rows);
     public List<Collections> selectByCategory(@Param("category")String category);
+    public List<Collections> getAll(@Param("start") int start, @Param("rows") int rows);
 }

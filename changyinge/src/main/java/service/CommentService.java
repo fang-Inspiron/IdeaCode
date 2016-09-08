@@ -1,5 +1,7 @@
 package service;
 
+import entity.Collections;
+import entity.Comment;
 import entity.SongComment;
 import entity.UserComment;
 import org.apache.ibatis.annotations.Param;
@@ -14,4 +16,5 @@ public interface CommentService {
     public int delete(long commentId);
     public List<UserComment> getUserList(String userId);
     public List<SongComment> getSongList(long songId);
+    public List<Comment> getAllComment();
 }

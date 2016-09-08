@@ -21,6 +21,10 @@ public class SongServiceImpl implements SongService {
         return songDao.get(songId);
     }
 
+    public List<Collections> getAll(int start, int rows) {
+        return songDao.getAll(start, rows);
+    }
+
     public int increaseCollectionsCount(long songId) {
         return songDao.increaseCollectionsCount(songId);
     }

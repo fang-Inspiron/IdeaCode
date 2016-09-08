@@ -2,9 +2,7 @@ package service.impl;
 
 import dao.CommentDao;
 import dao.SongDao;
-import entity.Song;
-import entity.SongComment;
-import entity.UserComment;
+import entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import service.CommentService;
@@ -35,5 +33,9 @@ public class CommentServiceImpl implements CommentService {
 
     public List<SongComment> getSongList(long songId) {
         return commentDao.getSongList(songId);
+    }
+
+    public List<Comment> getAllComment() {
+        return commentDao.getAllComment();
     }
 }

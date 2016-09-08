@@ -1,5 +1,7 @@
 package web;
 
+import entity.Collections;
+import entity.Comment;
 import entity.UserComment;
 import exception.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,4 +55,5 @@ public class CommentController {
         String userId= (String) request.getSession().getAttribute("userId");
         return commentService.getUserList(userId);
     }
+
 }
